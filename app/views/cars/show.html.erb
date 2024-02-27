@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-lg-8">
       <div class="card-trip">
@@ -40,13 +40,17 @@
         <p><%= review.comment %></p>
       <% end %>
     </div>
-    <div class="col-lg-4">
-      <h2>Review that car</h2>
-      <%= simple_form_for [@car, @review] do |f| %>
-        <%= f.input :rating, collection: (1..5)  %>
-        <%= f.input :comment %>
-        <%= f.submit "Review"%>
-      <% end %>
+    <div class="col-lg-4" data-controller="toggle">
+      <button class="btn btn-outline-secondary mb-4" data-action="click->toggle#fire">
+        <h2>Review that car</h2>
+      </button>
+      <div class="form d-none" data-toggle-target="form">
+        <%= simple_form_for [@car, @review] do |f| %>
+          <%= f.input :rating, collection: (1..5)  %>
+          <%= f.input :comment %>
+          <%= f.submit "Review"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
