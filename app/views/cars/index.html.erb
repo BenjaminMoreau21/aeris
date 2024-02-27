@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="app/assets/stylesheets/style.css" />
+
+<div class="card-trip-index-container container mt-5">
+<% @cars.each do |car| %>
+<div class="card-trip-index">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-index-infos">
+    <div>
+      <div class="card-trip-index-box1">
+      <h2><%= car.brand %>  <%= car.model %></h2>
+      <p><%= image_tag 'icon_seat.png', height: 20 %><%= car.seats %></p>
+      <p><%= car.description %></p>
+      </div>
+    </div>
+    <div class="card-trip-index-box2">
+    <p class="card-trip-index-rating">☆ 5.0</p>
+    <h2 class="card-trip-index-pricing"><%= car.price_per_day %>/day</h2>
+    </div>
+  </div>
+</div>
+<% end %>
+
+</div>
