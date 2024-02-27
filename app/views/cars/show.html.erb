@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-9">
       <div class="card-trip">
-        <%= image_tag "porsche-911-turbo-720x405px.jpg" %>
+        <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
           <div class="row">
             <div class="col-lg-6">
@@ -29,4 +29,3 @@
     </div>
   </div>
 </div>
-          </div>
