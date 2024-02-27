@@ -8,11 +8,17 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
+  def index
+  end
+
   def create
     @car = Car.new(car_params)
     @car.user = current_user
-    @car.save
-    redirect_to new_car_path
+    if @car.save
+      redirect_to car_path(@car)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
