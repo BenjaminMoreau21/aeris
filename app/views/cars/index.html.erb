@@ -13,7 +13,9 @@
       </div>
     </div>
     <div class="card-trip-index-box2">
-    <p class="card-trip-index-rating">☆ 5.0</p>
+    <% unless car.reviews.empty? %>
+      <p class="card-trip-index-rating">☆ <%= car.reviews.map(&:rating).sum / car.reviews.size %></p>
+    <% end %>
     <h2 class="card-trip-index-pricing"><%= car.price_per_day %>/day</h2>
     </div>
   </div>
