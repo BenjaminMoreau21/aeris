@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @cars = Car.all
   end
@@ -7,6 +8,7 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     @review = Review.new
+    @booking = Booking.new
   end
 
   def new
@@ -37,6 +39,8 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @car.destroy
     redirect_to root_path
+  def yours
+    @cars = Car.where(user: current_user)
   end
 
   private
