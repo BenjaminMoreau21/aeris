@@ -1,0 +1,31 @@
+.reviewtext {
+  font-size: 15px;
+}
+
+.reviewtitle {
+  font-weight: bolder;
+  margin-bottom: 1px;
+}
+
+.review {
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+  margin-top: 25px;
+}
+
+.review_date {
+  margin-left: 10px;
+  font-size: 14px;
+  text-align: end;
+  margin-top: 3px;
+  color: grey ;
+}
+
+.reviewstar {
+  color: rgb(255, 221, 0);
+}
+
+.reviewaverage {
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
