@@ -52,21 +52,28 @@
   </div>
   <div class="row mt-4">
     <div class="col-lg-8">
-      <h2>Reviews</h2>
+      <h2> <%= @car.reviews.length %> Reviews</h2>
+      <% if @car.reviews.length != 0 %>
+      <h3 class="reviewaverage">Average rating :
+        <i class="reviewstar fa-solid fa-star"></i> <%= ((@car.reviews.map(&:rating).sum).to_f/@car.reviews.length).floor(2) %>
+      </h3>
+      <% end %>
       <% @car.reviews.each do |review| %>
-      <div class="d-flex align-items-center">
-        <h5 class="avatar-letter"><%= review.user.first_name.chars.first.capitalize %></h5>
-        <h6><%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize}" %></h6>
-      </div>
-        <p><%= review.rating %></p>
-        <p><%= review.comment %></p>
+        <div class="review">
+          <div class="d-flex align-items-center">
+            <h5 class="avatar-letter-review"><%= review.user.first_name.chars.first.capitalize %></h5>
+            <p class="reviewtitle"><%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize}" %></p>
+          </div>
+          <div class="d-flex">
+            <p><i class="reviewstar fa-solid fa-star"></i> <%= review.rating %></p>
+            <p class="review_date"> posted <%= time_ago_in_words(review.created_at) %> ago</p>
+          </div>
+            <p class="reviewtext"><%= review.comment %></p>
+        </div>
       <% end %>
     </div>
-    <div class="col-lg-4" data-controller="toggle">
-      <button class="btn btn-outline-secondary mb-4" data-action="click->toggle#fire">
-        <h2>Review that car</h2>
-      </button>
-      <div class="form d-none" data-toggle-target="form">
+    <div class="col-lg-4">
+      <div class="form">
         <%= simple_form_for [@car, @review] do |f| %>
           <%= f.input :rating, collection: (1..5)  %>
           <%= f.input :comment %>

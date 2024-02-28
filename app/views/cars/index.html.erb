@@ -20,7 +20,7 @@
         <h2 class="card-trip-index-rating"><%= car.reviews.map(&:rating).sum / car.reviews.size %></h2>
       </div>
     <% end %>
-    <h2 class="card-trip-index-pricing mt-3"><%= car.price_per_day %>/day</h2>
+    <h2 class="card-trip-index-pricing mt-3"><%= car.price_per_day %>$/day</h2>
     </div>
   </div>
 </div>
