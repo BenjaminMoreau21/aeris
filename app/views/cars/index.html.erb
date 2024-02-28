@@ -9,12 +9,20 @@
     <div>
       <div class="card-trip-index-box1">
       <h2><%= car.brand %>  <%= car.model %></h2>
-      <p><%= image_tag 'icon_seat.png', height: 20 %><%= car.seats %></p>
+      <div class="d-flex mt-3">
+        <h2><i class="fa-regular fa-user me-2"></i></h2>
+        <p><%= car.seats %></p>
+      </div>
       </div>
     </div>
     <div class="card-trip-index-box2">
-    <p class="card-trip-index-rating">☆ 5.0</p>
-    <h2 class="card-trip-index-pricing"><%= car.price_per_day %>/day</h2>
+    <% unless car.reviews.empty? %>
+      <div class="d-flex">
+        <h2 class="me-2"><i class="fa-regular fa-star"></i></h2>
+        <h2 class="card-trip-index-rating"><%= car.reviews.map(&:rating).sum / car.reviews.size %></h2>
+      </div>
+    <% end %>
+    <h2 class="card-trip-index-pricing mt-3"><%= car.price_per_day %>/day</h2>
     </div>
   </div>
 </div>
