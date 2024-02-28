@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def create
+    @booking = Booking.new
     @review = Review.new(review_params)
     @car = Car.find(params[:car_id])
     @review.car = @car
