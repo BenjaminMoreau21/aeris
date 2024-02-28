@@ -46,10 +46,10 @@ car = Car.new(brand: 'Porsche', model: 'Taycan', price_per_day: 234,
 car.photo.attach(io: file, filename: "porsche2.jpg", content_type: "image/jpg")
 car.save!
 
-file = URI.open("https://cdn.motor1.com/images/mgl/6ZAvXk/s1/lamborghini-invencible.jpg")
-car = Car.new(brand: 'Lamborghini', model: 'Aventador', price_per_day: 40,
-  address: 'leWagon Street 50', km: '20000', year: '2021', seats: '2',
-  carburant: 'Essence', doors: 5, power: 650, user: user1, description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+file = URI.open("https://www.pngall.com/wp-content/uploads/2018/04/Luxury-Car-PNG-HD.png")
+car = Car.new(brand: 'Ferrari', model: 'La Ferrari', price_per_day: 354,
+  address: 'Paris', km: '554', year: '2006', seats: '2',
+  carburant: 'Essence', doors: 5, power: 766, user: user1, description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
 car.photo.attach(io: file, filename: "lambo.jpg", content_type: "image/jpg")
 car.save!
 
@@ -64,6 +64,13 @@ file = URI.open("https://www.flat6mag.com/medias/images/porsche-taycan-baie-givr
 car = Car.new(brand: 'Porsche', model: 'Taycan', price_per_day: 234,
   address: 'Wavre', km: '2346', year: '2023', seats: '2',
   carburant: 'Electric', doors: 5, power: 765, user: user1, description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+car.photo.attach(io: file, filename: "porsche2.jpg", content_type: "image/jpg")
+car.save!
+
+file = URI.open("https://purepng.com/public/uploads/large/purepng.com-mercedes-benz-s63-amg-white-carcarvehicletransportmercedes-benz-961524652051tpgtg.png")
+car = Car.new(brand: 'Mercedes', model: 'class S', price_per_day: 132,
+  address: 'Wavre', km: '2346', year: '2023', seats: '2',
+  carburant: 'Essence', doors: 5, power: 345, user: user1, description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
 car.photo.attach(io: file, filename: "porsche2.jpg", content_type: "image/jpg")
 car.save!
 puts "Cars created"
