@@ -1,4 +1,12 @@
 <div class="container mt-5 mb-5">
+
+  <div class="editbouton d-flex justify-content-around">
+    <% if current_user == @car.user %>
+        <%= link_to "Edit", edit_car_path(@car), class: "btn btn-dark"%>
+        <%= link_to "Delete", car_path(@car), class: "btn btn-danger",
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-lg-8">
       <div class="card-trip">
