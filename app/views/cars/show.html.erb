@@ -11,20 +11,21 @@
     <div class="col-lg-8">
       <div class="card-trip">
         <%= cl_image_tag @car.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-trip-infos">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="d-flex align-items-center mb-3"> <h5>Model: </h5><p><%= "#{@car.brand} #{@car.model}" %></p></div>
-              <div class="d-flex align-items-center mb-3"> <h5>Power: </h5><p><%= "#{@car.power} ch" %></p></div>
-              <div class="d-flex align-items-center"> <h5>Carburant: </h5><p><%= @car.carburant %></p></div>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex align-items-center mb-3"> <h5>Seats: </h5><p><%= @car.seats %></p></div>
-              <div class="d-flex align-items-center mb-3"> <h5>Kilometers: </h5><p><%= @car.km %></p></div>
-              <div class="d-flex align-items-center"> <h5>Year: </h5><p><%= @car.year %></p></div>
-            </div>
+          <div class="card-trip-infos">
+              <div class="col-lg-3">
+                <div class="d-flex align-items-center mb-3"> <p><i class="fa-solid fa-car-side"></i> <%= "#{@car.brand} #{@car.model}" %></p></div>
+                <div class="d-flex align-items-center"> <p><i class="fa-solid fa-calendar-days"></i> <%= @car.year %></p></div>
+              </div>
+              <div class="col-lg-3">
+                <div class="d-flex align-items-center mb-3"><p><i class="fa-solid fa-gas-pump"></i> <%= @car.carburant %></p></div>
+                <div class="d-flex align-items-center"><p><%= image_tag 'icon_mileage.png', class: 'icon' %> <%= @car.km %> km</p></div>
+              </div>
+              <div class="col-lg-3">
+                <div class="d-flex align-items-center mb-3"><p><%= image_tag 'icon_seat.png', class: 'icon_seat' %> <%= @car.seats %></p></div>
+                <div class="d-flex align-items-center"><p><i class="fa-solid fa-horse-head"></i> <%= @car.power %> hp</p></div>
+              </div>
           </div>
-        </div>
+
       </div>
       <div class="mt-5">
         <h2>Description</h2>
