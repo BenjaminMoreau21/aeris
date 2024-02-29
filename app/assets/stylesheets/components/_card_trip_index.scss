@@ -1,8 +1,8 @@
 .card-trip-index {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top: 20px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.2);
 }
 
 .card-trip-index > img {
@@ -19,7 +19,7 @@
 }
 
 .card-trip-index p {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
   margin: 0;
   color: black;
