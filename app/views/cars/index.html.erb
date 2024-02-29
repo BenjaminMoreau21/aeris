@@ -18,9 +18,14 @@
     </div>
     <div class="card-trip-index-box2">
     <% unless car.reviews.empty? %>
-      <div class="d-flex">
-        <h2 class="me-2"><i class="fa-regular fa-star"></i></h2>
-        <h2 class="card-trip-index-rating"><%= car.reviews.map(&:rating).sum / car.reviews.size %></h2>
+      <div class="d-flex justify-content-end">
+        <h2 class="me-2"><i class="reviewstar fa-solid fa-star"></i></h2>
+        <p class="card-trip-index-rating"><%= car.reviews.map(&:rating).sum.to_f / car.reviews.size %></p>
+      </div>
+    <% else %>
+      <div class="d-flex justify-content-end">
+        <h2 class="me-2"><i class="reviewstar fa-solid fa-star"></i></h2>
+        <p class="card-trip-index-rating" style="line-height: 16px;">-</p>
       </div>
     <% end %>
     <h2 class="card-trip-index-pricing mt-3"><%= car.price_per_day %>$/day</h2>
