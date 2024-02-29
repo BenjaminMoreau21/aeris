@@ -30,11 +30,48 @@
         <h2>Description</h2>
         <p><%= @car.description %></p>
       </div>
-
+    <div class="reviewtitle">
+      <h2> <%= @car.reviews.length %> Reviews</h2>
+      <div class="d-flex justify-content-between">
+        <div class="review-bars">
+        <div class="d-flex"></div>
+          <div class="d-flex align-items-center"><p class="rating-number">5</p><div class="review-bar" style="background-image: linear-gradient(to right, #FCDC2A <%= @five %>%, rgba(0,0,0,0) 0%); "></div></div>
+          <div class="d-flex align-items-center"><p class="rating-number">4</p><div class="review-bar" style="background-image: linear-gradient(to right, #FCDC2A <%= @four %>%, rgba(0,0,0,0) 0%); "></div></div>
+          <div class="d-flex align-items-center"><p class="rating-number">3</p><div class="review-bar" style="background-image: linear-gradient(to right, #FCDC2A <%= @three %>%, rgba(0,0,0,0) 0%); "></div></div>
+          <div class="d-flex align-items-center"><p class="rating-number">2</p><div class="review-bar" style="background-image: linear-gradient(to right, #FCDC2A <%= @two %>%, rgba(0,0,0,0) 0%); "></div></div>
+          <div class="d-flex align-items-center"><p class="rating-number">1</p><div class="review-bar" style="background-image: linear-gradient(to right, #FCDC2A <%= @one %>%, rgba(0,0,0,0) 0%); "></div></div>
+        </div>
+        <div>
+          <% if @car.reviews.length != 0 %>
+            <h3 class="reviewaverage"><%= ((@car.reviews.map(&:rating).sum).to_f/@car.reviews.length).floor(2) %></h3>
+          <% end %>
+        </div>
+      </div>
+      </div>
+      <% @car.reviews.each do |review| %>
+        <div class="review">
+          <div class="d-flex align-items-center">
+            <h5 class="avatar-letter-review"><%= review.user.first_name.chars.first.capitalize %></h5>
+            <div class="d-flex flex-column">
+              <p style="margin-bottom:5px;"><%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize}" %></p>
+              <div class="d-flex">
+                <% review.rating.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+                <% (5 - review.rating).times do %>
+                  <i class="fa-regular fa-star"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+            <div><p class="reviewtext"><%= review.comment %></p></div>
+            <p class="review_date"> posted <%= time_ago_in_words(review.created_at) %> ago</p>
+        </div>
+      <% end %>
     </div>
     <div class="col-lg-4">
       <% if @car.user != current_user %>
-        <div class="form" data-controller="total-price", data-total-price-cost-value="<%=@car.price_per_day%>">
+        <div class="form form-book" data-controller="total-price", data-total-price-cost-value="<%=@car.price_per_day%>">
         <%= simple_form_for [@car, @booking] do |f| %>
           <div class="d-flex align-items-center">
             <h3 class="mb-4"><%= "#{@car.price_per_day}€ / day" %></h3>
@@ -42,7 +79,7 @@
           <div class="d-flex" style="gap: 20px;">
             <%= f.input :start_date,
               as: :string,
-              input_html: { data: { controller: "datepicker", total_price_target: "start_date" } }%>
+              input_html: { data: { controller: "datepicker", total_price_target: "start_date"}}%>
             <%= f.input :end_date,
               as: :string,
               input_html: { data: { controller: "datepicker", action: "input->total-price#display", total_price_target: "end_date" } } %>
@@ -55,39 +92,14 @@
           </div>
         <% end %>
       </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-lg-8">
-      <h2> <%= @car.reviews.length %> Reviews</h2>
-      <% if @car.reviews.length != 0 %>
-      <h3 class="reviewaverage">Average rating :
-        <i class="reviewstar fa-solid fa-star"></i> <%= ((@car.reviews.map(&:rating).sum).to_f/@car.reviews.length).floor(2) %>
-      </h3>
-      <% end %>
-      <% @car.reviews.each do |review| %>
-        <div class="review">
-          <div class="d-flex align-items-center">
-            <h5 class="avatar-letter-review"><%= review.user.first_name.chars.first.capitalize %></h5>
-            <p class="reviewtitle"><%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize}" %></p>
-          </div>
-          <div class="d-flex">
-            <p><i class="reviewstar fa-solid fa-star"></i> <%= review.rating %></p>
-            <p class="review_date"> posted <%= time_ago_in_words(review.created_at) %> ago</p>
-          </div>
-            <p class="reviewtext"><%= review.comment %></p>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-lg-4">
-      <div class="form">
+      <div class="form form-review">
         <%= simple_form_for [@car, @review] do |f| %>
           <%= f.input :rating, collection: (1..5)  %>
           <%= f.input :comment %>
-          <%= f.submit "Review"%>
+          <%= f.submit "Review", class:"button-perso"%>
         <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
