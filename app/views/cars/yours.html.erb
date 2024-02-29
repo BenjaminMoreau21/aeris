@@ -1,10 +1,10 @@
-<div class="container mt-5">
-<h2>Your cars</h2>
+<div class="container" style="margin-top: 80px; height: 100vh">
+<h2 style="color: white; text-align: center">Your cars</h2>
 <div class="card-trip-index-container container mt-3">
 <% @cars.each do |car| %>
 <%= link_to car_path(car),  style: "text-decoration: none" do %>
 <div class="card-trip-index">
-  <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag car.photos[0].key, height: 300, width: 400, crop: :fill %>
   <div class="card-trip-index-infos">
     <div>
       <div class="card-trip-index-box1">
@@ -30,5 +30,4 @@
 <% end %>
 
 </div>
-
 </div>
