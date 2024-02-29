@@ -1,5 +1,5 @@
 
-<div class="container mb-5" style="margin-top: 100px; height: 100vh">
+<div class="container mb-5" style="margin-top: 100px; height: 100%; margin-bottom: 30px">
 <h2 class="mb-5" style="text-align: center; color: white">Select you dream car</h2>
 <div class="d-flex justify-content-center">
 <%= form_with url: root_path, method: :get, class: "d-flex search-form" do %>
@@ -15,7 +15,7 @@
 <% @cars.each do |car| %>
 <%= link_to car_path(car),  style: "text-decoration: none" do %>
 <div class="card-trip-index">
-  <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag car.photos[0].key, height: 300, width: 400, crop: :fill %>
   <div class="card-trip-index-infos">
     <div>
       <div class="card-trip-index-box1">
