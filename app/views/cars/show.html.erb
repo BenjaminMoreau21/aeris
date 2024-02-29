@@ -34,7 +34,7 @@
     </div>
     <div class="col-lg-4">
       <% if @car.user != current_user %>
-        <div class="form" data-controller="total-price", data-total-price-cost-value="<%=@car.price_per_day%>">
+        <div class="form" data-controller="total-price" data-total-price-cost-value="<%=@car.price_per_day%>">
         <%= simple_form_for [@car, @booking] do |f| %>
           <div class="d-flex align-items-center">
             <h3 class="mb-4"><%= "#{@car.price_per_day}€ / day" %></h3>
@@ -42,7 +42,7 @@
           <div class="d-flex" style="gap: 20px;">
             <%= f.input :start_date,
               as: :string,
-              input_html: { data: { controller: "datepicker", total_price_target: "start_date" } }%>
+              input_html: { data: { controller: "datepicker", total_price_target: "start_date"}}%>
             <%= f.input :end_date,
               as: :string,
               input_html: { data: { controller: "datepicker", action: "input->total-price#display", total_price_target: "end_date" } } %>
