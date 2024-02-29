@@ -20,7 +20,20 @@ background: linear-gradient(to bottom right, #1b4332, #2d6a4f, #4a9479);
   // background: rgb(178,83,62);
   background: linear-gradient(to bottom right, #1b4332, #2d6a4f, #4a9479);
 
-  background: linear-gradient(90deg, rgba(178,83,62,1) 59%, rgba(246,130,104,1) 100%);
+  // background: linear-gradient(90deg, rgba(178,83,62,1) 59%, rgba(246,130,104,1) 100%);
+  text-decoration: none;
+  padding: 8px 30px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: solid 1px #414154;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button-delete-small {
+  background: rgb(0,0,0);
+  background: linear-gradient(to bottom right, rgba(0,0,0,1) 0%, rgba(139,141,136,1) 100%);
   text-decoration: none;
   padding: 8px 30px;
   border-radius: 10px;
@@ -56,4 +69,13 @@ background: linear-gradient(to bottom right, #1b4332, #2d6a4f, #4a9479);
   border-bottom-right-radius: 30px; /* Bottom right corner */
   border-top-left-radius: 0; /* Explicitly setting to 0 to ensure no radius */
   border-bottom-left-radius: 0; /* Explicitly setting to 0 to ensure no radius */
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
