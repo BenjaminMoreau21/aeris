@@ -79,7 +79,7 @@
           <div class="d-flex" style="gap: 20px;">
             <%= f.input :start_date,
               as: :string,
-              input_html: { data: { controller: "datepicker", total_price_target: "start_date" } }%>
+              input_html: { data: { controller: "datepicker", total_price_target: "start_date"}}%>
             <%= f.input :end_date,
               as: :string,
               input_html: { data: { controller: "datepicker", action: "input->total-price#display", total_price_target: "end_date" } } %>
