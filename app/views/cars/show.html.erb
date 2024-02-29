@@ -116,13 +116,13 @@
         <% end %>
       </div>
       <% end %>
-<div class="edit-form">
   <% if current_user == @car.user %>
+<div class="edit-form">
       <%= link_to "Modify your car details", edit_car_path(@car), class: "button-perso-small"%>
       <%= link_to "Delete your car", car_path(@car), class: "button-delete-small",
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-  <% end %>
  </div>
+  <% end %>
     </div>
   </div>
 </div>
