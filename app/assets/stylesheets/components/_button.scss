@@ -30,3 +30,29 @@ background: linear-gradient(to bottom right, #1b4332, #2d6a4f, #4a9479);
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.button-search {
+    background: rgb(222,201,150);
+    border: solid 0;
+    padding: 10px 40px;
+}
+
+.search-form {
+  border-radius: 20px;
+  width: 600px;
+}
+
+.input-left {
+  border-top-left-radius: 30px;  /* Top left corner */
+  border-bottom-left-radius: 30px; /* Bottom left corner */
+  border-top-right-radius: 0; /* Explicitly setting to 0 to ensure no radius */
+  border-bottom-right-radius: 0; /* Explicitly setting to 0 to ensure no radius */
+}
+
+.input-right {
+  /* Apply border radius to all corners except top-left and bottom-left */
+  border-top-right-radius: 30px;  /* Top right corner */
+  border-bottom-right-radius: 30px; /* Bottom right corner */
+  border-top-left-radius: 0; /* Explicitly setting to 0 to ensure no radius */
+  border-bottom-left-radius: 0; /* Explicitly setting to 0 to ensure no radius */
+}

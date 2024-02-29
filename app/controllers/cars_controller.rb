@@ -1,8 +1,11 @@
 class CarsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @cars = Car.all
+    if params[:query].present?
+      sql_subquery = "model ILIKE :query OR brand ILIKE :query"
+      @cars = @cars.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
