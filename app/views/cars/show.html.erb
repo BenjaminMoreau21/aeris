@@ -1,12 +1,6 @@
 <div class="container mb-3" style="margin-top: 100px">
 
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <% if current_user == @car.user %>
-        <%= link_to "Modify your car details", edit_car_path(@car), class: "button-perso-small"%>
-        <%= link_to "Delete your car", car_path(@car), class: "link-danger",
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-    <% end %>
-  </div>
+
   <div class="row">
     <div class="col-lg-8">
       <div class="card-trip">
@@ -112,6 +106,7 @@
             <div><h3 data-total-price-target="text"></h3></div>
           </div>
         <% end %>
+
       </div>
       <div class="form form-review">
         <%= simple_form_for [@car, @review] do |f| %>
@@ -121,6 +116,13 @@
         <% end %>
       </div>
       <% end %>
+<div class="edit-form">
+  <% if current_user == @car.user %>
+      <%= link_to "Modify your car details", edit_car_path(@car), class: "button-perso-small"%>
+      <%= link_to "Delete your car", car_path(@car), class: "button-delete-small",
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <% end %>
+ </div>
     </div>
   </div>
 </div>
