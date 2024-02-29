@@ -31,11 +31,13 @@
   // border-style: dashed;
   // border-color: rgb(0, 0, 0);
   // border-radius: 5px;
-  border: solid #ffffff;
+  border: solid #F1E4C3;
   border-radius: 5px;
 }
 
 .createTitel h1 {
+  text-shadow: 0 0 1px rgb(0, 255, 255);
+  color: white;
   text-shadow: 0 0 5px rgb(0, 255, 255);
 }
 
