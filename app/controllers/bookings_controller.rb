@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.car = @car
     @booking.user = current_user
     if @booking.save
-      redirect_to car_path(@car), notice: "Booking successful"
+      redirect_to bookings_path, notice: "Booking successful"
     else
       render "cars/show", status: :unprocessable_entity
     end

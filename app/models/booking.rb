@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :car
   validates :start_date, :end_date, presence: true
   validate :end_date_after_start_date
-  validate :no_overlapping
+  #validate :no_overlapping
 
   private
 
@@ -15,9 +15,9 @@ class Booking < ApplicationRecord
     errors.add(:start_date, "cannot be in the past") if start_date < Date.today
   end
 
-  def no_overlapping
-    overlap = Booking.all.any? { |booking| (start_date..end_date).overlaps?(booking.start_date..booking.end_date) }
-    errors.add(:start_date, "Sorry those dates are already booked") if overlap
-    errors.add(:end_date, "Sorry those dates are already booked") if overlap
-  end
+  #def no_overlapping
+  #  overlap = Booking.all.any? { |booking| (start_date..end_date).overlaps?(booking.start_date..booking.end_date) }
+  #  errors.add(:start_date, "Sorry those dates are already booked") if overlap
+  #  errors.add(:end_date, "Sorry those dates are already booked") if overlap
+  #end
 end
