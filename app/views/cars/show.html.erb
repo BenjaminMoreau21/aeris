@@ -118,9 +118,26 @@
       <% end %>
   <% if current_user == @car.user %>
     <div class="edit-form">
-      <%= link_to "Modify your car details", edit_car_path(@car), class: "button-perso-small"%>
-      <%= link_to "Delete your car", car_path(@car), class: "button-delete-small",
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          <%= link_to "Modify your car details", edit_car_path(@car), class: "button-perso-small"%>
+          <%= link_to "Delete your car", car_path(@car), class: "button-delete-small",
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </div>
+    <div class="next_bookings">
+      <h3 class="mb-4" style="font-weight: bold;">Next bookings for this car</h3>
+      <ul class="next_bookings_list">
+        <% @car.bookings.sort_by{ |booking| booking.start_date }.each do |booking| %>
+        <li class="next_bookings_list_element">
+          <div class="next_bookings_list_userpicture">
+            <p class="avatar-letter-booking"><%= booking.user.first_name.chars.first.capitalize %></p>
+          </div>
+          <div>
+            <p class="next_bookings_list_element_info"><b style="font-weight: bold;">Rented by: </b><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            <p class="next_bookings_list_element_info"><b style="font-weight: bold;">From: </b><%= booking.start_date %></p>
+            <p class="next_bookings_list_element_info"><b style="font-weight: bold;">To: </b><%= booking.end_date %></p>
+          </div>
+        </li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
     </div>

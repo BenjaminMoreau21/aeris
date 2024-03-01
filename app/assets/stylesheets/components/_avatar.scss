@@ -43,6 +43,21 @@
   color: white;
 }
 
+.avatar-letter-booking {
+ // background-color: rgb(96, 96, 132);
+  background: linear-gradient(to bottom right, #1b4332, #2d6a4f, #4a9479);
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  height: 45px;
+  width: 45px;
+  margin-bottom: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 0.3em 0.6em;
+}
+
 h3 {
   font-size: 120%;
 }
