@@ -7,3 +7,43 @@
   margin-top: 25px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+
+.next_bookings {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  height: 385px;
+}
+
+.next_bookings_list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  height: 330px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+  border-radius: 3px;
+}
+
+.next_bookings_list_element {
+  display: flex;
+  list-style-type: none;
+  border: 1px solid;
+  border-color: rgb(206, 206, 206);
+  border-radius: 5px;
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+.next_bookings_list_userpicture {
+  height: auto;
+  width: 68.4px;
+}
+
+.next_bookings_list_element_info {
+  margin-bottom: 0;
+  font-size: 90%;
+}
