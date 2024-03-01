@@ -59,7 +59,7 @@
         </div>
         <div>
           <% if @car.reviews.length != 0 %>
-            <h3 class="reviewaverage"><%= @avg_rating %></h3>
+            <h3 class="reviewaverage"><%= @avg_rating %> / 5</h3>
           <% end %>
         </div>
       </div>
@@ -108,13 +108,16 @@
           </div>
         <% end %>
       </div>
-      <div class="form form-review">
+
+      <% if !@current_bookings.empty? && @current_bookings.any? { |booking| booking.end_date < Date.today} && @current_reviews.size == 0%>
+        <div class="form form-review">
         <%= simple_form_for [@car, @review] do |f| %>
           <%= f.input :rating, collection: (1..5)  %>
           <%= f.input :comment %>
           <%= f.submit "Review", class:"button-perso"%>
         <% end %>
       </div>
+      <% end %>
       <% end %>
   <% if current_user == @car.user %>
     <div class="edit-form">

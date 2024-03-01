@@ -19,6 +19,8 @@ class CarsController < ApplicationController
     @three = (@ratings.count(3).to_f / @ratings.size) * 100
     @two = (@ratings.count(2).to_f / @ratings.size) * 100
     @one = (@ratings.count(1).to_f / @ratings.size) * 100
+    @current_bookings = Booking.where(car: @car, user: current_user)
+    @current_reviews = Review.where(car: @car, user: current_user)
   end
 
   def new
