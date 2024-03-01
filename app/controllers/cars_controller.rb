@@ -12,6 +12,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @review = Review.new
     @booking = Booking.new
+    @avg_rating = ((@car.reviews.map(&:rating).sum).to_f/@car.reviews.length).floor(2)
     @ratings = @car.reviews.map(&:rating)
     @five = (@ratings.count(5).to_f / @ratings.size) * 100
     @four = (@ratings.count(4).to_f / @ratings.size) * 100

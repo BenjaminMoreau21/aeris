@@ -5,16 +5,17 @@
     <div class="col-lg-8">
       <div class="card-trip">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
         <div class="carousel-inner">
           <% @car.photos.each do |photo| %>
-            <div class="carousel-item active">
-              <%= cl_image_tag photo.key, height: 500, width: 900, crop: :fill %>
-            </div>
+            <% if @car.photos.index(photo) == 0 %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, height: 500, width: 900, crop: :fill %>
+              </div>
+              <% else %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, height: 500, width: 900, crop: :fill %>
+              </div>
+            <% end %>
           <% end %>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -58,7 +59,7 @@
         </div>
         <div>
           <% if @car.reviews.length != 0 %>
-            <h3 class="reviewaverage"><%= ((@car.reviews.map(&:rating).sum).to_f/@car.reviews.length).floor(2) %></h3>
+            <h3 class="reviewaverage"><%= @avg_rating %></h3>
           <% end %>
         </div>
       </div>
@@ -86,7 +87,7 @@
     </div>
     <div class="col-lg-4">
       <% if @car.user != current_user %>
-        <div class="form form-book" data-controller="total-price", data-total-price-cost-value="<%=@car.price_per_day%>">
+        <div class="form form-book" data-controller="total-price", data-action="submit->modal#show", data-total-price-cost-value="<%=@car.price_per_day%>">
         <%= simple_form_for [@car, @booking] do |f| %>
           <div class="d-flex align-items-center">
             <h3 class="mb-4"><%= "#{@car.price_per_day}€ / day" %></h3>
@@ -106,7 +107,6 @@
             <div><h3 data-total-price-target="text"></h3></div>
           </div>
         <% end %>
-
       </div>
       <div class="form form-review">
         <%= simple_form_for [@car, @review] do |f| %>
