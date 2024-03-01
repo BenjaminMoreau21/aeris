@@ -26,6 +26,7 @@ car = Car.new(brand: 'Ferrari', model: 'La Ferrari', price_per_day: 354,
 car.photos.attach(io: file, filename: "ferrari.png", content_type: "image/png")
 car.photos.attach(io: file2, filename: "ferrari2.png", content_type: "image/png")
 car.save!
+ferro1 = car
 
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/2022_Ferrari_296_%28cropped%29.jpg/1200px-2022_Ferrari_296_%28cropped%29.jpg")
 file2 = URI.open("https://media.autoexpress.co.uk/image/private/s--cn4LzPik--/v1673282911/evo/2023/01/Ferrari%20296%20GTB%20eCoty%20review-5.jpg")
@@ -34,7 +35,7 @@ car = Car.new(brand: 'Ferrari', model: '296 GTB', price_per_day: 160,
   carburant: 'Essence', doors: 5, power: 345, user: user2, description: "The 296 GTB, an evolution of Ferrari’s mid-rear-engined two-seater sports berlinetta concept, represents a revolution for the Maranello-based company as it introduces the new 120° V6 engine coupled with a plug-in (PHEV) electric motor capable of delivering up to 830 cv. The car thus defines the idea of driving fun to provide pure excitement not only when pursuing maximum performance but also in everyday driving.")
 car.photos.attach(io: file, filename: "ferrari.png", content_type: "image/png")
 car.photos.attach(io: file2, filename: "ferrari2.png", content_type: "image/png")
-car.save!
+ferro2 = car.save!
 
 file = URI.open("https://cdn.motor1.com/images/mgl/QMLRB/s1/ferrari-sf90-stradale.jpg")
 file2 = URI.open("https://assets-global.website-files.com/5b4a3b3971d099f78f362505/63ff47746ea7d9354e426dc1_2022-Ferrari-SF90-Stradale-Rosso-Corsa-ZFF95NLA6N0273902_012.jpg")
@@ -43,7 +44,7 @@ car = Car.new(brand: 'Ferrari', model: 'SF90 Stradale', price_per_day: 263,
   carburant: 'Essence', doors: 5, power: 963, user: user3, description: "The Mercedes-Benz S-Class, formerly known as Sonderklasse (German for 'special class', abbreviated as 'S-Klasse'), is a series of full-sized luxury sedans, limousines and armored sedans produced by the German automaker Mercedes-Benz. The S-Class is the designation for top-of-the-line Mercedes-Benz models and was officially introduced in 1972 with the W116, and has remained in use ever since. The S-Class is one of the flagship vehicles for Mercedes-Benz.")
 car.photos.attach(io: file, filename: "ferrari.png", content_type: "image/png")
 car.photos.attach(io: file2, filename: "ferrari2.png", content_type: "image/png")
-car.save!
+ferro3 = car.save!
 
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mercedes-Benz_W223_IMG_6663.jpg/1200px-Mercedes-Benz_W223_IMG_6663.jpg")
 file2 = URI.open("https://parkers-images.bauersecure.com/wp-images/22201/cut-out/930x620/mercedes-benz-s-class-00.jpg")
@@ -53,6 +54,7 @@ car = Car.new(brand: 'Mercedes-Benz', model: 'S-Class', price_per_day: 132,
 car.photos.attach(io: file, filename: "mercedes.jpg", content_type: "image/png")
 car.photos.attach(io: file2, filename: "mercedes2.png", content_type: "image/png")
 car.save!
+merco1 = car
 
 file = URI.open("https://media.autoexpress.co.uk/image/private/s--510s6t_n--/v1681404536/evo/2023/04/Mercedes%20AMG%20A35%20review%202023-5.jpg")
 file2 = URI.open("https://mobile-img.lpcdn.ca/lpca/924x/8779c1b6/2429206c-7b6a-11eb-a88b-02fe89184577.jpg")
@@ -61,7 +63,7 @@ car = Car.new(brand: 'Mercedes-Benz', model: 'AMG A-35', price_per_day: 40,
   carburant: 'Diesel', doors: 5, power: 300, user: user2, description: "As impressive as ever, as individual as never before: the Mercedes-AMG A 35 Sedan knows how to impress with numerous options that show off its compact, elegant form to even greater advantage. AMG light-alloy wheels with dynamic spoke designs, new paint finishes and highlights such as the Panoramic Rooftop make every drive a real experience and offer you more opportunities for individualisation than ever before.")
 car.photos.attach(io: file, filename: "mercedes.png", content_type: "image/png")
 car.photos.attach(io: file2, filename: "mercedes2.png", content_type: "image/png")
-car.save!
+merco2 = car.save!
 
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Benz_W_222_S_350_Bluetec.JPG/1280px-Mercedes-Benz_W_222_S_350_Bluetec.jpg")
 file2 = URI.open("https://i.ytimg.com/vi/8LprsBh24vw/maxresdefault.jpg")
@@ -71,5 +73,19 @@ car = Car.new(brand: 'Mercedes-Benz', model: 'S-Class W222', price_per_day: 85,
 car.photos.attach(io: file, filename: "mercedes.png", content_type: "image/png")
 car.photos.attach(io: file2, filename: "mercedes2.png", content_type: "image/png")
 car.save!
+merco3 = car
 
 puts "Cars created"
+
+puts "Creating reviews..."
+
+review2 = Review.create!(rating: 2, comment: "The car is a lightweight sports car that prioritizes agility and responsiveness above all else. Its turbocharged inline-four engine and carbon fiber chassis deliver exhilarating performance, while its minimalist interior keeps distractions to a minimum. With Italian styling and race-inspired dynamics, the 4C is a true driver's car.", user: user2, car: merco1)
+review3 = Review.create(rating: 4, comment: "The Jaguar F-Type R is a sleek and sophisticated sports car with a wild side. Its supercharged V8 engine produces a symphony of power, while its all-wheel drive system ensures relentless traction in any condition. With head-turning looks and refined British craftsmanship, the F-Type R is a true luxury performance car.", user: user3, car: merco1)
+review5 = Review.create(rating: 3, comment: "The Lamborghini Huracán Evo is a true beast on the road. Its aggressive styling and thunderous V10 engine command attention wherever it goes. With lightning-fast acceleration and razor-sharp handling, the Huracán Evo delivers an adrenaline rush like no other.", user: user2, car: ferro1)
+review6 = Review.create(rating: 2, comment: "The Ferrari 488 GTB is the epitome of automotive artistry. Its sleek lines, blistering performance, and unmistakable Ferrari roar make it a dream to drive. Every curve feels purposeful, every gear change exhilarating. This is more than a car; it's an experience.", user: user3, car: ferro1)
+
+puts "Created reviews"
+
+puts "Creating bookings..."
+
+booking1 = Booking.create(start_date: Date.today - 5, end_date: Date.today-3, user: user2, car: merco3)
